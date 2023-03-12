@@ -19,7 +19,7 @@ This CRUD application supports the following operation:
 
 The list of items is stored in a CSV file called 'records.csv'
 
-Note: I have an article on **Medium** that you can surf to read the complete explanation at [the following link](https://medium.com/@arighymoch/integrating-crud-application-with-csv-files-using-cli-in-python-c3c343d54b0f).
-
 ## Contributing
 If you'd like to contribute to this project, feel free to fork this repository and submit a pull request.
+
+Note: I have an article on **Medium** that you can surf to read the complete explanation at [the following link](https://medium.com/@arighymoch/integrating-crud-application-with-csv-files-using-cli-in-python-c3c343d54b0f).
