@@ -158,10 +158,7 @@ def gender_entry():
             else:
                 print(f'Error Messages : Option Number "{gender_input}" is invalid')
         else:
-            if ' ' in gender_input:
-                print('Error Messages : Option Number must not contain space character')
-            elif len(gender_input) == 0:
-                print('Error Messages : Option Number must be filled')
+            error_option_input(gender_input)
     return gender
 def bloodType_entry():
     while True:
@@ -186,10 +183,7 @@ def bloodType_entry():
             else:
                 print(f'Error Messages : Option Number "{blood_input}" is invalid')
         else:
-            if ' ' in blood_input:
-                print('Error Messages : Option Number must not contain space character')
-            elif len(blood_input) == 0:
-                print('Error Messages : Option Number must be filled')
+            error_option_input(blood_input)
     return blood
 def phoneNumber_entry():
     while True:
@@ -285,6 +279,13 @@ def each_patient_delete(input):
             patients_list.remove(each_patient)
             break
 
+# Function to handle error in option input
+def error_option_input(option):
+    if ' ' in option:
+        print('Error Messages : Option input must not contain space character\n')
+    elif len(option) == 0:
+        print('Error Messages : Option input must be filled\n')
+
 # Main page is included in a function
 def main_page():
     while True:
@@ -293,6 +294,7 @@ def main_page():
         print('='.center(130, '='), '\n')
         main_page_input = input('Please enter Option Number = ')
         if (' ' not in main_page_input) and (len(main_page_input) > 0):
+            
             # Create Page
             if main_page_input == '1':
                 print('\n'+' CREATE NEW PATIENT RECORD '.center(130, '=')+'\n\nPlease fill out New Patient Record\n')
@@ -324,10 +326,7 @@ def main_page():
                         else:
                             print(f'\nError Message : Option number "{confirmation_input}" is invalid')
                     else:
-                        if ' ' in confirmation_input:
-                            print('Error Messages : Option input must not contain space character')
-                        elif len(confirmation_input) == 0:
-                            print('Error Messages : Option input must be filled')
+                        error_option_input(confirmation_input)
             
             # Read Page
             elif main_page_input == '2':
@@ -358,10 +357,7 @@ def main_page():
                         else:
                             print(f'\nError Message : Option number "{read_page_input}" is invalid')
                     else:
-                        if ' ' in read_page_input:
-                            print('Error Messages : Option input must not contain space character')
-                        elif len(read_page_input) == 0:
-                            print('Error Messages : Option input must be filled')
+                        error_option_input(read_page_input)
             
             # Update Page
             elif main_page_input == '3':
@@ -398,11 +394,6 @@ def main_page():
                                                     print('Do you confirm to update data?\n\n1. Yes\n2. No')
                                                     confirmation = input('Please enter option number = ')
                                                     return confirmation
-                                                def error_option_input():
-                                                    if ' ' in confirmation:
-                                                        print('Error Messages : Option input must not contain space character\n')
-                                                    elif len(confirmation) == 0:
-                                                        print('Error Messages : Option input must be filled\n')
                                                 if key == '1':
                                                     print('\nOption input = Update Patient ID')
                                                     id_number_new = id_entry()
@@ -423,7 +414,7 @@ def main_page():
                                                                 continue
                                                             break
                                                         else:
-                                                            error_option_input()
+                                                            error_option_input(confirmation)
                                                 elif key == '2':
                                                     print('\nOption input = Update Patient Name')
                                                     name_new = name_entry()
@@ -442,7 +433,7 @@ def main_page():
                                                                 continue
                                                             break
                                                         else:
-                                                            error_option_input()
+                                                            error_option_input(confirmation)
                                                 elif key == '3':
                                                     print('\nOption input = Update Patient Birthdate')
                                                     (day_new, month_new, year_new, age_new) = birthdate_entry()
@@ -465,7 +456,7 @@ def main_page():
                                                                 continue
                                                             break
                                                         else:
-                                                            error_option_input()
+                                                            error_option_input(confirmation)
                                                 elif key == '4':
                                                     print('\nOption input = Update Patient Gender')
                                                     gender_new = gender_entry()
@@ -485,7 +476,7 @@ def main_page():
                                                                 continue
                                                             break
                                                         else:
-                                                            error_option_input()
+                                                            error_option_input(confirmation)
                                                 elif key == '5':
                                                     print('\nOption input = Update Patient Blood Type')
                                                     blood_new = bloodType_entry()
@@ -505,7 +496,7 @@ def main_page():
                                                                 continue
                                                             break
                                                         else:
-                                                            error_option_input()
+                                                            error_option_input(confirmation)
                                                 elif key == '6':
                                                     print('\nOption input = Update Patient Phone Number')
                                                     phone_new = phoneNumber_entry()
@@ -525,30 +516,24 @@ def main_page():
                                                                 continue
                                                             break
                                                         else:
-                                                            error_option_input()
+                                                            error_option_input(confirmation)
                                                 else:
                                                     print('\nOption input = Back to Update Page')
                                                     break
                                             else:
                                                 print(f'\nError Message : Option number "{key}" is invalid\n')
                                         else:
-                                            if ' ' in key:
-                                                print('Error Messages : Option input must not contain space character')
-                                            elif len(key) == 0:
-                                                print('Error Messages : Option input must be filled')
+                                            error_option_input(key)
                                 else:
                                     show_selected_data(id_matched_input)
                                     print('Back to Update Page')
-                            elif update_page_input == '2':
+                            else:
                                 print('\nOption input = Back to Main Page')
                                 break
                         else:
                             print(f'\nError Message : Option number "{update_page_input}" is invalid\n')
                     else:
-                        if ' ' in update_page_input:
-                            print('Error Messages : Option input must not contain space character')
-                        elif len(update_page_input) == 0:
-                            print('Error Messages : Option input must be filled')
+                        error_option_input(update_page_input)
             
             # Delete Page
             elif main_page_input == '4':
@@ -583,10 +568,7 @@ def main_page():
                                             else:
                                                 print(f'Error Message : Option input "{confirmation}" is invalid')
                                         else:
-                                            if ' ' in confirmation:
-                                                print('Error Messages : Option input not contain space character')
-                                            elif len(confirmation) == 0:
-                                                print('Error Messages : Option input must be filled')
+                                            error_option_input(confirmation)
                                 else:
                                     print('Back to Delete Page')
                             else:
@@ -595,10 +577,7 @@ def main_page():
                         else:
                             print(f'Error Message : Option number "{delete_page_input}" is invalid')
                     else:
-                        if ' ' in delete_page_input:
-                            print('Error Messages : Option input not contain space character')
-                        elif len(delete_page_input) == 0:
-                            print('Error Messages : Option input must be filled')
+                        error_option_input(delete_page_input)
             
             # Exit and saving CSV file as database using 'with' statement
             elif main_page_input == '5':
@@ -612,10 +591,7 @@ def main_page():
             else:
                 print(f'\nError Message : Option number "{main_page_input}" is invalid')
         else:
-            if ' ' in main_page_input:
-                print('Error Messages : Option input must not contain space character')
-            elif len(main_page_input) == 0:
-                print('Error Messages : Option input must be filled')
+            error_option_input(main_page_input)
 
 # Execute the program by calling 'main_page' function
 main_page()
